@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Render Frame</title>
+    <link rel="icon" type="image/x-icon" href="/public/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../src/css/styles.css">
+    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <nav>
+            <div class="logo">RF</div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Three.js Canvas -->
+    <canvas class="webgl"></canvas>
+
+    <!-- About Section -->
+    <section class="content content-right">
+        <h2>The Next Chapter</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </section>
+
+    <!-- Creator Section -->
+    <section class="creator-section">
+        <div class="creator-content">
+            <div class="creator-image">
+                <div class="photo-container">
+                    <img src="../src/assets/images/caioabrahao.png" alt="Caio Abrahão - Creative Developer" class="profile-photo">
+                </div>
+            </div>
+            <div class="creator-info">
+                <h2>The Creator</h2>
+                <h3>Caio Abrahão</h3>
+                <p>Creative developer focused on building immersive digital experiences. Combining technical expertise with artistic vision to create unique web solutions.</p>
+                <p>With a background in both design and development, I strive to bridge the gap between aesthetics and functionality, creating websites that not only look great but also provide meaningful user experiences.</p>
+                <div class="creator-links">
+                    <a href="#" class="cta-button">View Resume</a>
+                    <a href="#" class="cta-button">Contact Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <nav class="footer-nav">
+                <a href="../index.html">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            
+            <div class="social-links">
+                <a href="https://github.com/caioabrahao" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-behance"></i>
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/caioabrahao/theRenderFrame" target="_blank" rel="noopener noreferrer" class="repo-link">
+                    <i class="fas fa-code-branch"></i> GitHub Repo
+                </a>
+            </div>
+
+            <p class="creator">Created by Caio Abrahão</p>
+            <p class="version-note">This website is the second test iteration of the Render Frame project</p>
+        </div>
+    </footer>
+
+    <script type="module" src="../src/js/three/about-three.js"></script>
+    <script src="../src/js/main.js"></script>
+</body>
+</html> 
