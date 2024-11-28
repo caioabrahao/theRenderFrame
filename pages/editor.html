@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js Editor</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    
+    <style>
+        body { 
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background: black;
+            color: white;
+            overflow: hidden;
+        }
+
+        #editor-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            grid-template-rows: 50px 1fr;
+            height: 100vh;
+        }
+
+        #top-bar {
+            grid-column: 1 / -1;
+            background: #111;
+            border-bottom: 1px solid #ff8c00;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        #sidebar {
+            background: #111;
+            border-right: 1px solid #ff8c00;
+            padding: 20px;
+        }
+
+        #viewport {
+            position: relative;
+        }
+
+        #scene-canvas {
+            width: 100%;
+            height: 100%;
+        }
+
+        .camera-controls {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="editor-container">
+        <div id="top-bar">
+            <div class="logo">RF EDITOR</div>
+            <div class="options">
+                <!-- Options will be added here -->
+            </div>
+        </div>
+        <div id="sidebar">
+            <!-- Tools will be added here -->
+            <h3>Tools</h3>
+            <p>Coming soon...</p>
+        </div>
+        <div id="viewport">
+            <canvas id="scene-canvas"></canvas>
+            <div class="camera-controls">
+                Left Mouse: Rotate | Middle Mouse: Pan | Right Mouse: Zoom
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../src/js/three/editor-three.js"></script>
+</body>
+</html> 
