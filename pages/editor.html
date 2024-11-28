@@ -16,7 +16,12 @@
         <div id="top-bar">
             <div class="logo">RF EDITOR</div>
             <div class="options">
-                <!-- Options will be added here -->
+                <button id="render-settings-btn" class="top-bar-btn" title="Render Settings">
+                    Render Settings
+                </button>
+                <button id="export-btn" class="top-bar-btn" title="Export Viewport">
+                    Export Image
+                </button>
             </div>
         </div>
         <div id="sidebar">
@@ -31,6 +36,17 @@
                     <option value="cone">Cone</option>
                     <option value="torus">Torus</option>
                 </select>
+                <div class="transform-tools">
+                    <button class="transform-btn" data-mode="translate" title="Move (G)">
+                        <span>Move</span>
+                    </button>
+                    <button class="transform-btn" data-mode="rotate" title="Rotate (R)">
+                        <span>Rotate</span>
+                    </button>
+                    <button class="transform-btn" data-mode="scale" title="Scale (S)">
+                        <span>Scale</span>
+                    </button>
+                </div>
             </div>
 
             <div class="objects-panel">
@@ -39,11 +55,18 @@
                     <p class="empty-message">No objects in scene</p>
                 </div>
             </div>
+
+            <div class="properties-panel">
+                <h3>Properties</h3>
+                <div id="properties-content">
+                    <p class="empty-message">No object selected</p>
+                </div>
+            </div>
         </div>
         <div id="viewport">
             <canvas id="scene-canvas"></canvas>
             <div class="camera-controls">
-                Left Mouse: Rotate | Middle Mouse: Pan | Right Mouse: Zoom
+                Middle Mouse: Rotate | Mouse Wheel: Zoom | Right Mouse: Pan
             </div>
         </div>
     </div>

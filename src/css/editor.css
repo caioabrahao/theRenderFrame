@@ -165,4 +165,231 @@ option {
     color: #ff8c00;
     font-weight: bold;
     font-size: 1.2rem;
-} 
+}
+
+/* Properties Panel Styles */
+.properties-panel {
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 140, 0, 0.3);
+    padding-top: 1rem;
+}
+
+.property-group {
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+.property-row {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+}
+
+.property-label {
+    flex: 1;
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.property-input {
+    width: 100px;
+    padding: 0.25rem;
+    background: #222;
+    border: 1px solid #ff8c00;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    border-radius: 3px;
+    margin-left: 0.5rem;
+}
+
+.property-input:focus {
+    outline: none;
+    border-color: #ff9f2a;
+}
+
+.property-group-title {
+    color: #ff8c00;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.property-checkbox {
+    margin-left: 0.5rem;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.property-color {
+    width: 60px;
+    height: 25px;
+    padding: 0;
+    margin-left: 0.5rem;
+    border: 1px solid #ff8c00;
+    border-radius: 3px;
+    cursor: pointer;
+    background: #222;
+}
+
+.property-color:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.property-input option {
+    background: #222;
+    color: white;
+    padding: 0.25rem;
+}
+
+/* Transform Tools */
+.transform-tools {
+    display: flex;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.transform-btn {
+    flex: 1;
+    padding: 0.5rem;
+    background: #222;
+    border: 1px solid #ff8c00;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.transform-btn:hover {
+    background: #333;
+    border-color: #ff9f2a;
+}
+
+.transform-btn.active {
+    background: #ff8c00;
+    color: #222;
+}
+
+/* Top Bar Button Styles */
+.top-bar-btn {
+    padding: 0.5rem 1rem;
+    background: #222;
+    border: 1px solid #ff8c00;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 1rem;
+}
+
+.top-bar-btn:hover {
+    background: #333;
+    border-color: #ff9f2a;
+}
+
+/* Export Dialog Styles */
+.export-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #1a1a1a;
+    border: 1px solid #ff8c00;
+    border-radius: 8px;
+    padding: 2rem;
+    z-index: 1000;
+    min-width: 300px;
+}
+
+.export-dialog h2 {
+    color: #ff8c00;
+    margin-bottom: 1rem;
+}
+
+.export-preview {
+    max-width: 100%;
+    margin: 1rem 0;
+    border: 1px solid #333;
+}
+
+.export-options {
+    margin: 1rem 0;
+    display: flex;
+    gap: 1rem;
+}
+
+.dialog-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+/* Render Settings Dialog */
+.settings-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #1a1a1a;
+    border: 1px solid #ff8c00;
+    border-radius: 8px;
+    padding: 2rem;
+    z-index: 1000;
+    min-width: 300px;
+}
+
+.settings-dialog h2 {
+    color: #ff8c00;
+    margin-bottom: 1rem;
+}
+
+.settings-group {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+.settings-row {
+    display: flex;
+    align-items: center;
+    margin: 0.8rem 0;
+}
+
+.settings-label {
+    flex: 1;
+    color: #ccc;
+}
+
+.settings-input {
+    width: 100px;
+    padding: 0.25rem;
+    background: #222;
+    border: 1px solid #ff8c00;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    border-radius: 3px;
+}
+
+.settings-checkbox {
+    width: 20px;
+    height: 20px;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+.dialog-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+  
