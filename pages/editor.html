@@ -65,6 +65,88 @@
             border-radius: 4px;
             font-size: 0.8rem;
         }
+
+        .tool-section {
+            margin: 1rem 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #ccc;
+        }
+
+        select {
+            width: 100%;
+            padding: 0.5rem;
+            background: #222;
+            border: 1px solid #ff8c00;
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            border-radius: 4px;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #ff9f2a;
+        }
+
+        option {
+            background: #222;
+            color: white;
+        }
+
+        .objects-panel {
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 140, 0, 0.3);
+            padding-top: 1rem;
+        }
+
+        #objects-list {
+            margin-top: 1rem;
+        }
+
+        .object-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 140, 0, 0.2);
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .object-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .object-name {
+            color: #ccc;
+        }
+
+        .delete-btn {
+            background: none;
+            border: none;
+            color: #ff8c00;
+            cursor: pointer;
+            padding: 0.2rem 0.5rem;
+            font-size: 0.8rem;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .delete-btn:hover {
+            opacity: 1;
+        }
+
+        .empty-message {
+            color: #666;
+            font-style: italic;
+            font-size: 0.9rem;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -76,9 +158,25 @@
             </div>
         </div>
         <div id="sidebar">
-            <!-- Tools will be added here -->
             <h3>Tools</h3>
-            <p>Coming soon...</p>
+            <div class="tool-section">
+                <label for="shape-select">Add Shape:</label>
+                <select id="shape-select">
+                    <option value="">Select a shape...</option>
+                    <option value="box">Box</option>
+                    <option value="sphere">Sphere</option>
+                    <option value="cylinder">Cylinder</option>
+                    <option value="cone">Cone</option>
+                    <option value="torus">Torus</option>
+                </select>
+            </div>
+
+            <div class="objects-panel">
+                <h3>Scene Objects</h3>
+                <div id="objects-list">
+                    <p class="empty-message">No objects in scene</p>
+                </div>
+            </div>
         </div>
         <div id="viewport">
             <canvas id="scene-canvas"></canvas>

@@ -4,9 +4,20 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 class Editor {
     constructor() {
         this.initialize();
+        this.setupShapeSelector();
+        this.objectCount = {
+            box: 0,
+            sphere: 0,
+            cylinder: 0,
+            cone: 0,
+            torus: 0
+        };
     }
 
     initialize() {
+        // Initialize objects array
+        this.objects = [];
+
         // Create scene
         this.scene = new THREE.Scene();
         this.scene.background = new THREE.Color(0x1a1a1a);
@@ -66,6 +77,126 @@ class Editor {
         
         this.controls.update();
         this.renderer.render(this.scene, this.camera);
+    }
+
+    addShape(shapeType) {
+        let geometry;
+        let material = new THREE.MeshStandardMaterial({ 
+            color: 0xff8c00,
+            metalness: 0.3,
+            roughness: 0.4,
+        });
+
+        switch(shapeType) {
+            case 'box':
+                geometry = new THREE.BoxGeometry(1, 1, 1);
+                break;
+            case 'sphere':
+                geometry = new THREE.SphereGeometry(0.5, 32, 32);
+                break;
+            case 'cylinder':
+                geometry = new THREE.CylinderGeometry(0.5, 0.5, 1, 32);
+                break;
+            case 'cone':
+                geometry = new THREE.ConeGeometry(0.5, 1, 32);
+                break;
+            case 'torus':
+                geometry = new THREE.TorusGeometry(0.5, 0.2, 16, 100);
+                break;
+            default:
+                return;
+        }
+
+        const mesh = new THREE.Mesh(geometry, material);
+        
+        // Increment counter for this shape type
+        this.objectCount[shapeType]++;
+        
+        // Add name to the mesh
+        mesh.name = `${shapeType}_${this.objectCount[shapeType]}`;
+        
+        // Add to scene and objects array
+        this.scene.add(mesh);
+        this.objects.push(mesh);
+
+        // Update the objects list
+        this.updateObjectsList();
+
+        // Add lighting if it's the first object
+        if (this.objects.length === 1) {
+            this.setupLighting();
+        }
+    }
+
+    updateObjectsList() {
+        const objectsList = document.getElementById('objects-list');
+        
+        // Clear the current list
+        objectsList.innerHTML = '';
+        
+        if (this.objects.length === 0) {
+            objectsList.innerHTML = '<p class="empty-message">No objects in scene</p>';
+            return;
+        }
+
+        // Add each object to the list
+        this.objects.forEach((obj, index) => {
+            const objectItem = document.createElement('div');
+            objectItem.className = 'object-item';
+            objectItem.innerHTML = `
+                <span class="object-name">${obj.name}</span>
+                <button class="delete-btn" data-index="${index}">×</button>
+            `;
+            objectsList.appendChild(objectItem);
+        });
+
+        // Add event listeners to delete buttons
+        const deleteButtons = document.querySelectorAll('.delete-btn');
+        deleteButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const index = parseInt(e.target.dataset.index);
+                this.deleteObject(index);
+            });
+        });
+    }
+
+    deleteObject(index) {
+        // Remove from scene
+        const object = this.objects[index];
+        this.scene.remove(object);
+        
+        // Remove from objects array
+        this.objects.splice(index, 1);
+        
+        // Update the objects list
+        this.updateObjectsList();
+    }
+
+    setupShapeSelector() {
+        const shapeSelect = document.getElementById('shape-select');
+        shapeSelect.addEventListener('change', (e) => {
+            if (e.target.value) {
+                this.addShape(e.target.value);
+                // Reset select to default option
+                e.target.value = '';
+            }
+        });
+    }
+
+    setupLighting() {
+        // Add ambient light
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        this.scene.add(ambientLight);
+
+        // Add directional light
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+        directionalLight.position.set(5, 5, 5);
+        this.scene.add(directionalLight);
+
+        // Add point light
+        const pointLight = new THREE.PointLight(0xff8c00, 0.5);
+        pointLight.position.set(-5, 5, -5);
+        this.scene.add(pointLight);
     }
 }
 
