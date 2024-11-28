@@ -1,10 +1,12 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { TransformControls } from 'three/examples/jsm/controls/TransformControls';
 
 class Editor {
     constructor() {
         this.initialize();
         this.setupShapeSelector();
+        this.setupRaycaster();
         this.objectCount = {
             box: 0,
             sphere: 0,
@@ -55,11 +57,21 @@ class Editor {
         this.controls.enableDamping = true;
         this.controls.dampingFactor = 0.05;
 
+        // Add transform controls
+        this.transformControls = new TransformControls(this.camera, this.renderer.domElement);
+        this.transformControls.addEventListener('dragging-changed', (event) => {
+            this.controls.enabled = !event.value;
+        });
+        this.scene.add(this.transformControls);
+
         // Handle window resize
         window.addEventListener('resize', () => this.updateRendererSize());
 
         // Start animation loop
         this.animate();
+
+        // Add selected object property
+        this.selectedObject = null;
     }
 
     updateRendererSize() {
@@ -128,6 +140,61 @@ class Editor {
         }
     }
 
+    setupRaycaster() {
+        this.raycaster = new THREE.Raycaster();
+        this.mouse = new THREE.Vector2();
+
+        // Add click event listener to the canvas
+        this.renderer.domElement.addEventListener('click', (event) => {
+            // Calculate mouse position in normalized device coordinates
+            const rect = this.renderer.domElement.getBoundingClientRect();
+            this.mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+            this.mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+
+            // Update the picking ray with the camera and mouse position
+            this.raycaster.setFromCamera(this.mouse, this.camera);
+
+            // Calculate objects intersecting the picking ray
+            const intersects = this.raycaster.intersectObjects(this.objects);
+
+            if (intersects.length > 0) {
+                this.selectObject(this.objects.indexOf(intersects[0].object));
+            } else {
+                this.clearSelection();
+            }
+        });
+    }
+
+    selectObject(index) {
+        // Clear previous selection
+        if (this.selectedObject) {
+            this.selectedObject.material.emissive.setHex(0x000000);
+        }
+
+        // Set new selection
+        this.selectedObject = this.objects[index];
+        if (this.selectedObject) {
+            this.selectedObject.material.emissive.setHex(0x666666);
+            
+            // Update UI selection
+            const objectItems = document.querySelectorAll('.object-item');
+            objectItems.forEach((item, i) => {
+                item.classList.toggle('selected', i === index);
+            });
+        }
+    }
+
+    clearSelection() {
+        if (this.selectedObject) {
+            this.selectedObject.material.emissive.setHex(0x000000);
+            this.selectedObject = null;
+
+            // Clear UI selection
+            const objectItems = document.querySelectorAll('.object-item');
+            objectItems.forEach(item => item.classList.remove('selected'));
+        }
+    }
+
     updateObjectsList() {
         const objectsList = document.getElementById('objects-list');
         
@@ -143,11 +210,21 @@ class Editor {
         this.objects.forEach((obj, index) => {
             const objectItem = document.createElement('div');
             objectItem.className = 'object-item';
+            if (obj === this.selectedObject) {
+                objectItem.classList.add('selected');
+            }
             objectItem.innerHTML = `
                 <span class="object-name">${obj.name}</span>
                 <button class="delete-btn" data-index="${index}">×</button>
             `;
             objectsList.appendChild(objectItem);
+
+            // Add click event for selecting object
+            objectItem.addEventListener('click', (e) => {
+                if (!e.target.classList.contains('delete-btn')) {
+                    this.selectObject(index);
+                }
+            });
         });
 
         // Add event listeners to delete buttons
@@ -163,12 +240,14 @@ class Editor {
     deleteObject(index) {
         // Remove from scene
         const object = this.objects[index];
+        
+        // Clear selection if deleting selected object
+        if (object === this.selectedObject) {
+            this.clearSelection();
+        }
+        
         this.scene.remove(object);
-        
-        // Remove from objects array
         this.objects.splice(index, 1);
-        
-        // Update the objects list
         this.updateObjectsList();
     }
 
