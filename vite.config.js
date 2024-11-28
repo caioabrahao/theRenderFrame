@@ -7,7 +7,9 @@ export default defineConfig({
         main: '/index.html',
         about: '/pages/about.html',
         projects: '/pages/projects.html',
-        contact: '/pages/contact.html'
+        contact: '/pages/contact.html',
+        editor: '/pages/editor.html',
+        editorMenu: '/pages/editor-menu.html'
       }
     }
   }
