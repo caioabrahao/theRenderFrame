@@ -879,4 +879,159 @@ canvas {
 .object-item.selected {
     background: rgba(255, 140, 0, 0.2);
     border-color: #ff8c00;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(3px);
+}
+
+.modal-content {
+    background-color: #000000;
+    margin: 15% auto;
+    padding: 30px;
+    border: 1px solid #ff8c00;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: white;
+}
+
+.close-modal {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+    color: #ff8c00;
+}
+
+.error-icon {
+    font-size: 40px;
+    color: #ff8c00;
+}
+
+.modal-alternatives p {
+    color: #cccccc;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+
+.modal-social-link {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.modal-social-link:hover {
+    color: #ff8c00;
+}
+
+.modal-ok-btn {
+    margin-top: 20px;
+    padding: 1rem 2rem;
+    background: transparent;
+    border: 1px solid #ff8c00;
+    color: #ff8c00;
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal-ok-btn:hover {
+    background: #ff8c00;
+    color: black;
+    transform: translateY(-2px);
+}
+
+.modal #modalMessage {
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+.modal-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.modal-alternatives {
+    margin: 20px 0;
+}
+
+.modal-socials {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.modal-social-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.modal-social-link:hover {
+    color: var(--accent-color);
+}
+
+.modal-social-link i {
+    font-size: 24px;
+}
+
+.modal-social-link span {
+    font-size: 0.8em;
+}
+
+.modal-ok-btn {
+    margin-top: 20px;
+    padding: 10px 30px;
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-ok-btn:hover {
+    background-color: var(--accent-color-hover);
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.cta-button {
+    width: fit-content;  /* Override any full-width settings */
+      /* Set a minimum width */
 } 

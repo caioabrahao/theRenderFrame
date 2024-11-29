@@ -10,16 +10,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../src/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("P2nY3JQfgicmgcUw2");
+        })();
+    </script>
 </head>
 <body>
     <header class="main-header">
         <nav>
             <div class="logo">RF</div>
             <ul class="nav-links">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/pages/projects.html">Projects</a></li>
+                <li><a href="/pages/about.html">About</a></li>
+                <li><a href="/pages/editor-menu.html">Editor</a></li>
+                <li><a href="/pages/contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -62,7 +69,7 @@
                 </div>
             </div>
 
-            <form class="contact-form">
+            <form class="contact-form" id="contactForm">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" required>
@@ -75,7 +82,7 @@
                     <label for="message">Message</label>
                     <textarea id="message" name="message" rows="5" required></textarea>
                 </div>
-                <button type="submit" class="submit-btn">Send Message</button>
+                <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
             </form>
         </div>
     </section>
@@ -111,5 +118,33 @@
 
     <script type="module" src="../src/js/three/contact-three.js"></script>
     <script src="../src/js/main.js"></script>
+    <script src="../src/js/contact.js"></script>
+    <div id="messageModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <i class="fas fa-exclamation-circle error-icon"></i>
+                <div id="modalMessage"></div>
+            </div>
+            <div class="modal-alternatives">
+                <p>Or you can try one of these:</p>
+                <div class="modal-socials">
+                    <a href="mailto:contact@renderframe.com" class="modal-social-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email directly</span>
+                    </a>
+                    <a href="https://github.com/caioabrahao" target="_blank" rel="noopener noreferrer" class="modal-social-link">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="modal-social-link">
+                        <i class="fab fa-linkedin-in"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+            <button class="modal-ok-btn">OK</button>
+        </div>
+    </div>
 </body>
 </html> 
