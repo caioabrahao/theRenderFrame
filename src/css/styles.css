@@ -383,6 +383,59 @@ canvas {
     margin: 0;
 }
 
+.editor-hero{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+
+    height: 100vh;
+
+    h1{
+        font-size: 4rem;
+        margin: 0;
+    }
+}
+
+.editor-hero-subtitle{
+    font-size: 1.5rem;
+    color: #B3B3B3;
+    margin-top: 1rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.editor-hero-text{
+    font-size: 1.2rem;
+    color: white;
+    margin-top: 1rem;
+    text-align: center;
+    width: 50%;
+}
+
+#editor-menu-three {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.editor-hero {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 2rem;
+}
+
 @media (max-width: 1024px) {
     .cards-container {
         gap: 1.5rem;
