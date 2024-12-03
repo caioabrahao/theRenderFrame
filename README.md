@@ -26,3 +26,5 @@ Hey, Please reach out!
 
 ## 🧾 License
 This project is licensed under the MIT License. See the LICENSE file for details.
+
+*The site might be a bit rough around the edges in some pages, but I will be updating it with time.*

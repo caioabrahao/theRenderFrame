@@ -34,10 +34,14 @@
     <section class="content content-right">
         <h2>What is Render Frame?</h2>
         <p>I created RF back in 2023 as a simple three.js learning test. But i thought it looked very cool and decided to turn in into a website. A year passes and now i know a lot more about three.js and i recreated it, turning it into an actual website!</p>
+        <a href="#creator-section" class="cta-button">The Creator</a>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
     </section>
 
     <!-- Creator Section -->
-    <section class="creator-section">
+    <section id="creator-section" class="creator-section">
         <div class="creator-content">
             <div class="creator-image">
                 <div class="photo-container">
@@ -45,13 +49,24 @@
                 </div>
             </div>
             <div class="creator-info">
-                <h2>The Creator</h2>
-                <h3>Caio Abrahão</h3>
-                <p>Creative developer focused on building immersive digital experiences. Combining technical expertise with artistic vision to create unique web solutions.</p>
-                <p>With a background in both design and development, I strive to bridge the gap between aesthetics and functionality, creating websites that not only look great but also provide meaningful user experiences.</p>
+                <h2>Caio Abrahão</h2>
+                <h3>Web Designer | Front-End Developer</h3>
+                <p>Hey there! I'm the one who creates this site! <br><br>
+                Im a web designer with a deep love for Front-End development. I really like playing around with colors, fonts, shapes and sizes to create unique pieces of visual (and interactive!) experiences.</p>
+                <div class="social-links">
+                    <a href="https://github.com/caioabrahao" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://behance.com/caioabrahao" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-behance"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/caioabrahao" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
                 <div class="creator-links">
-                    <a href="#" class="cta-button">View Resume</a>
-                    <a href="#" class="cta-button">Contact Me</a>
+                    <a href="https://buymeacoffee.com/buymeacoffee.com/caioabrahao" class="cta-button">Buy me a coffee</a>
+                    <a href="/pages/contact.html" class="cta-button">Contact Me!</a>
                 </div>
             </div>
         </div>
@@ -92,5 +107,13 @@
 
     <script type="module" src="../src/js/three/about-three.js"></script>
     <script src="../src/js/main.js"></script>
+    <script>
+        document.querySelector('.cta-button').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelector('#creator-section').scrollIntoView({ 
+        behavior: 'smooth' 
+    });
+});
+    </script>
 </body>
-</html> 
+</html>
