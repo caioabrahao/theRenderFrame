@@ -581,8 +581,16 @@ canvas {
     width: 100%;
     height: 200px;
     background: #1a1a1a;
-    /* Add placeholder gradient */
-    background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+
+    
+}
+.project1{
+    background: url('../assets/images/projects/WebWalker.png') no-repeat center center;
+    background-size: cover;
+}
+.project2{
+    background: url('../assets/images/projects/badgeDisplay.png') no-repeat center center;
+    background-size: cover;
 }
 
 .project-info {
