@@ -137,7 +137,7 @@ camera.position.z = 15;
 
 // Mouse move handler
 window.addEventListener('mousemove', (event) => {
-    const mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+    let mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
     torus.updateRotation(mouseY);
     mouseX = (event.clientX / window.innerWidth) * 2 - 1;
     mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
