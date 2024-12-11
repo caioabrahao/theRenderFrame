@@ -1,3 +1,5 @@
+<span style="color: orange;">The project itself is still a bit of a mess! It will be ported to Vue.js in the near future.</span>
+
 # Render Frame
 **Render Frame** is a personal project of mine that I made to learn some Three.js. I decided then to turn it into my personal portfolio/playground to showcase my three.js related creations.
 
