@@ -1100,3 +1100,41 @@ canvas {
     width: fit-content;  /* Override any full-width settings */
       /* Set a minimum width */
 } 
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    .main-header {
+        padding: 1rem 2rem;
+    }
+    .main-header nav {
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero{
+        padding: 2rem;
+    }
+    .hero h1 {
+        font-size: 4rem;
+    }
+    .hero-subtitle {
+        font-size: 1rem;
+        opacity: 1;
+        color: white;
+    }
+
+    .content {
+        padding: 2rem;
+    }
+
+    .main-footer nav{
+        display: none;
+    }
+
+}
